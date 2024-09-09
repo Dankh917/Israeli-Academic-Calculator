@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Configuration;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -18,22 +21,25 @@ namespace Israeli_Academic_Calculator.view.UserControls
     /// <summary>
     /// Interaction logic for DataEntryBox.xaml
     /// </summary>
-    public partial class DataEntryBox : UserControl
+    public partial class DataEntryBox : UserControl, INotifyPropertyChanged
     {
         public DataEntryBox()
         {
+            DataContext = this;
             InitializeComponent();
         }
 
         private string placeholder;
+
+        public event PropertyChangedEventHandler? PropertyChanged;
 
         public string Placeholder
         {
             get { return placeholder; }
             set 
             { 
-                placeholder = value; 
-                tbPlaceholder.Text = placeholder;
+                placeholder = value;
+                OnpropertyChanged("Placeholder");
             }
         }
 
@@ -54,6 +60,12 @@ namespace Israeli_Academic_Calculator.view.UserControls
             {
                 tbPlaceholder.Visibility = Visibility.Hidden;
             }
+
+        }
+
+        private void OnpropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
