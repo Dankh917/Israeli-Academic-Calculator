@@ -33,8 +33,11 @@ namespace Israeli_Academic_Calculator
 
             foreach (Course course in List_Courses)
             {
-                total_score += course.Score * course.Nakaz;
-                total_nakaz += course.Nakaz;
+                if (course.Is_Binary_Active == false)
+                {
+                    total_score += course.Score * course.Nakaz;
+                    total_nakaz += course.Nakaz;
+                }
             }
             result = total_score / total_nakaz;
             

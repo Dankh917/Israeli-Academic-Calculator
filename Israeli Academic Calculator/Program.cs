@@ -15,7 +15,7 @@ namespace Israeli_Academic_Calculator
             Calculator calculator = new Calculator();
 
 
-            Course c1 = new Course("english", 64, 3, false);
+            Course c1 = new Course("english", 64, 3, true);
             Course c2 = new Course("Deutsch", 78, 4, false);
             Course c3 = new Course("Deutsch", 92, 2, false);
 
