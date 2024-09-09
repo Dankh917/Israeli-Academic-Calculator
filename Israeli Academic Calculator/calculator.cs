@@ -49,7 +49,7 @@ namespace Israeli_Academic_Calculator
         {
             foreach(Course course in List_Courses)
             {
-                Console.WriteLine(course.Name);
+                Console.WriteLine(course.Name+" ");
             }
         }
 
