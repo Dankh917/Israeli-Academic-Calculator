@@ -20,5 +20,10 @@ namespace Israeli_Academic_Calculator
         {
             InitializeComponent();
         }
+
+        private void Add_btn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
