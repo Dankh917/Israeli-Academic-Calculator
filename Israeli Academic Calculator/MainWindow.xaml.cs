@@ -23,7 +23,7 @@ namespace Israeli_Academic_Calculator
 
         private void Add_btn_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
     }
 }
