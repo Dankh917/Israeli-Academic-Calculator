@@ -43,6 +43,14 @@ namespace Israeli_Academic_Calculator.view.UserControls
             }
         }
 
+        private string text;
+
+        public string Text
+        {
+            get { return  txtInput.Text; }
+            set { txtInput.Text = value; }
+        }
+
 
         private void btnClear_Click(object sender, RoutedEventArgs e)
         {
@@ -67,5 +75,9 @@ namespace Israeli_Academic_Calculator.view.UserControls
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+
+        //need to add a function to clear the DataEntryBox
+
     }
 }
