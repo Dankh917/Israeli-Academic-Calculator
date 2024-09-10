@@ -44,6 +44,11 @@ namespace Israeli_Academic_Calculator
             set { is_binary_active = value;}
         }
 
+
+        public override string ToString()
+        {
+            return name+" "+score+" "+nakaz+" "+Is_Binary_Active;
+        }
     }
 
   
