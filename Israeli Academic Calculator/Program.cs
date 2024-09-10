@@ -22,6 +22,8 @@ namespace Israeli_Academic_Calculator
             calculator.Add_Course(c1);
             calculator.Add_Course(c2);
             calculator.Add_Course(c3);
+            calculator.Add_Course(new Course("fsda",5,5,false));
+
 
             Console.WriteLine(calculator.Calculate_Average_Score());    
 
