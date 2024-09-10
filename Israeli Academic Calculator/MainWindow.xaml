@@ -35,13 +35,24 @@
                                            Placeholder="Course name"/>
                 <UserControls:DataEntryBox Grid.Row="1" x:Name="Course_grade" Width="250" Height="40" 
                                            Placeholder="Course grade"/>
-                <UserControls:DataEntryBox Grid.Row="2" x:Name="Nakaz_points" Width="250" Height="40" 
+                <UserControls:DataEntryBox Grid.Row="2" x:Name="Course_nakaz" Width="250" Height="40" 
                                            Placeholder="Course nakaz points"/>
                 <CheckBox Grid.Row="3" x:Name="Binary_pass" Content="Apply Binary-pass" Width="120" Height="20"  
                           VerticalAlignment="Center" HorizontalAlignment="Center" />
                 <Button Grid.Row="4" x:Name="Add_btn" Width="100" Height="40" 
                         Content="Add course" Click="Add_btn_Click" 
-                        VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        VerticalAlignment="Top" HorizontalAlignment="Center"/>
+
+
+            </Grid>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.8*"/>
+                    <RowDefinition Height="0.2*"/>
+                </Grid.RowDefinitions>
+                <ListView Grid.Row="0" Background="LightSlateGray" Name="C_entries" 
+                          ItemsSource="{Binding Entries}"  />
+
 
 
             </Grid>

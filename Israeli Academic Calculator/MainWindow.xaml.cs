@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Collections.ObjectModel;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -18,11 +19,30 @@ namespace Israeli_Academic_Calculator
     {
         public MainWindow()
         {
+            DataContext=this;
+            entries = new ObservableCollection<Course>();
             InitializeComponent();
         }
+        Calculator calculator = new Calculator();
+
+        private ObservableCollection<Course> entries;
+
+        public ObservableCollection<Course> Entries
+        {
+            get { return entries; }
+            set { entries = value; }
+        }
+
 
         private void Add_btn_Click(object sender, RoutedEventArgs e)
         {
+            Entries.Add(new Course(Course_name.Text, int.Parse(Course_grade.Text), int.Parse(Course_nakaz.Text), Binary_pass.IsChecked ?? false));
+            //calculator.Add_Course(new Course(Course_name.Text , int.Parse(Course_grade.Text), int.Parse(Course_nakaz.Text), Binary_pass.IsChecked??false)); //shuts the APP for some reason,
+                                                                                                                                     //need to check how to keep it running, might be for unhelded throw
+            if(Binary_pass.IsChecked==true)
+            {
+                Binary_pass.IsChecked = false;
+            }
             
         }
     }
