@@ -78,6 +78,10 @@ namespace Israeli_Academic_Calculator.view.UserControls
 
 
         //need to add a function to clear the DataEntryBox
+        public void Clr_Data_Entry_Box()
+        {
+            txtInput.Clear();
+        }
 
     }
 }
