@@ -49,7 +49,17 @@ namespace Israeli_Academic_Calculator
         {
             return "Name: "+Name+" | Score: "+score+" | Nakaz: "+nakaz+" | Binary active: "+Is_Binary_Active;
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null || GetType() != obj.GetType())
+                return false;
+
+            Course other = (Course)obj;
+            return Name == other.Name && Score == other.Score && Nakaz == other.Nakaz && Is_Binary_Active == other.Is_Binary_Active;
+        }
     }
+
 
   
 }
