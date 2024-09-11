@@ -47,7 +47,7 @@ namespace Israeli_Academic_Calculator
 
         public override string ToString()
         {
-            return name+" "+score+" "+nakaz+" "+Is_Binary_Active;
+            return "Name: "+Name+" | Score: "+score+" | Nakaz: "+nakaz+" | Binary active: "+Is_Binary_Active;
         }
     }
 
