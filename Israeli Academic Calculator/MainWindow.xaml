@@ -7,21 +7,25 @@
         mc:Ignorable="d"
         xmlns:UserControls="clr-namespace:Israeli_Academic_Calculator.view.UserControls"
         Title="MainWindow" Height="450" Width="700">
-       
+
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.07*"/>
             <RowDefinition Height="0.83*"/>
-            
+
         </Grid.RowDefinitions>
 
-        <Rectangle Fill="MediumPurple" /> <!--menu bar-->
+        <Rectangle Fill="MediumPurple" />
+        <!--menu bar-->
+
         <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions><!--Content-->
+            <Grid.ColumnDefinitions>
+                <!--Content-->
                 <ColumnDefinition Width="0.5*"/>
                 <ColumnDefinition Width="0.5*"/>
             </Grid.ColumnDefinitions>
-            
+
             <Grid Grid.Column="0">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
@@ -32,16 +36,18 @@
                 </Grid.RowDefinitions>
 
                 <UserControls:DataEntryBox Grid.Row="0" x:Name="Course_name" Width="250" Height="40" 
-                                           Placeholder="Course name"/>
+                                                   Placeholder="Course name"/>
                 <UserControls:DataEntryBox Grid.Row="1" x:Name="Course_grade" Width="250" Height="40" 
-                                           Placeholder="Course grade"/>
+                                                   Placeholder="Course grade"/>
                 <UserControls:DataEntryBox Grid.Row="2" x:Name="Course_nakaz" Width="250" Height="40" 
-                                           Placeholder="Course nakaz points"/>
+                                                   Placeholder="Course nakaz points"/>
                 <CheckBox Grid.Row="3" x:Name="Binary_pass" Content="Apply Binary-pass" Width="120" Height="20"  
-                          VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                  VerticalAlignment="Center" HorizontalAlignment="Center" />
                 <Button Grid.Row="4" x:Name="Add_btn" Width="100" Height="40" 
-                        Content="Add course" Click="Add_btn_Click" 
-                        VerticalAlignment="Top" HorizontalAlignment="Center"/>
+                                Content="Add course" Click="Add_btn_Click" 
+                                VerticalAlignment="Top" HorizontalAlignment="Center"/>
+                <Border Grid.RowSpan="5" HorizontalAlignment="Right" Width="2" Background="LightGray" Margin="0,13,0,13"/>
+
 
 
             </Grid>
@@ -50,13 +56,31 @@
                     <RowDefinition Height="0.8*"/>
                     <RowDefinition Height="0.2*"/>
                 </Grid.RowDefinitions>
-                <ListView Grid.Row="0" Background="LightSlateGray" Name="C_entries" 
-                          ItemsSource="{Binding Entries}"  />
+                <ListView Grid.Row="0" Background="White" Name="C_entries" BorderThickness="0" 
+                                  ItemsSource="{Binding Entries}" Margin="10,10,10,0" />
 
+
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button Name="Delbtn" Content="Delete" Height="40" 
+                            Width="100" VerticalAlignment="Top"  
+                            HorizontalAlignment="Center" Click="Delbtn_Click"/>
+
+                    <Button Grid.Column="1" Name="Calculatebtn" 
+                            Content="Calculate" Height="40" Width="100" VerticalAlignment="Top"  
+                            HorizontalAlignment="Center" Click="Calculatebtn_Click" />
+
+
+                </Grid>
+                
 
 
             </Grid>
         </Grid>
-        
+
     </Grid>
 </Window>

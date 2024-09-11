@@ -37,13 +37,31 @@ namespace Israeli_Academic_Calculator
         private void Add_btn_Click(object sender, RoutedEventArgs e)
         {
             Entries.Add(new Course(Course_name.Text, int.Parse(Course_grade.Text), int.Parse(Course_nakaz.Text), Binary_pass.IsChecked ?? false));
-            //calculator.Add_Course(new Course(Course_name.Text , int.Parse(Course_grade.Text), int.Parse(Course_nakaz.Text), Binary_pass.IsChecked??false)); //shuts the APP for some reason,
+            calculator.Add_Course(new Course(Course_name.Text , int.Parse(Course_grade.Text), int.Parse(Course_nakaz.Text), Binary_pass.IsChecked??false)); //shuts the APP for some reason,
                                                                                                                                      //need to check how to keep it running, might be for unhelded throw
             if(Binary_pass.IsChecked==true)
             {
                 Binary_pass.IsChecked = false;
             }
+
+            Course_name.Clr_Data_Entry_Box();
+            Course_grade.Clr_Data_Entry_Box();
+            Course_nakaz.Clr_Data_Entry_Box();
             
+        }
+
+        private void Delbtn_Click(object sender, RoutedEventArgs e)
+        {
+            Course selected_course = (Course)C_entries.SelectedItem;
+            calculator.Del_Course(selected_course);
+            Entries.Remove(selected_course);
+
+        }
+
+
+        private void Calculatebtn_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Your average score is : "+calculator.Calculate_Average_Score(), "RESULT",MessageBoxButton.OK);
         }
     }
 }
