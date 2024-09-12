@@ -31,12 +31,29 @@ namespace Israeli_Academic_Calculator
         public int Score
         {
             get { return score; }
-            set { score = value; }
+            set 
+            {
+                
+               
+                if (value < 0 || value > 100)
+                {
+                    throw new Exception("Score must be a positve number between 0-100");
+                }
+                score = value; 
+            }
         }
         public int Nakaz
         {
             get { return nakaz; }
-            set { nakaz = value; }
+            set 
+            {
+                if (value <= 0 )
+                {
+                    throw new Exception("Nakaz must be a positve number (>0)");
+                }
+                
+                nakaz = value; 
+            }
         }
         public bool Is_Binary_Active
         {
@@ -50,13 +67,13 @@ namespace Israeli_Academic_Calculator
             return "Name: "+Name+" | Score: "+score+" | Nakaz: "+nakaz+" | Binary active: "+Is_Binary_Active;
         }
 
-        public override bool Equals(object obj)
+        public override bool Equals(object obj) //overwritten this as to make the Del_Course(Course course) func in the Calculator class work , without it wouldnt work
         {
             if (obj == null || GetType() != obj.GetType())
                 return false;
 
             Course other = (Course)obj;
-            return Name == other.Name && Score == other.Score && Nakaz == other.Nakaz && Is_Binary_Active == other.Is_Binary_Active;
+            return Name == other.Name && Score == other.Score && Nakaz == other.Nakaz && Is_Binary_Active == other.Is_Binary_Active; 
         }
     }
 
