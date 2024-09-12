@@ -3,12 +3,16 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Israeli_Academic_Calculator"
+        xmlns:local="clr-namespace:Israeli_Academic_Calculator" 
         mc:Ignorable="d"
         xmlns:UserControls="clr-namespace:Israeli_Academic_Calculator.view.UserControls"
-        Title="MainWindow" Height="450" Width="700">
+        Title="Academic calculator" Height="550" Width="900" Icon="D:\Israeli Academic Calculator\Israeli Academic Calculator\Calculator_30001.ico"
+        
+        >
+        
+        
 
-    
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.07*"/>
@@ -16,10 +20,16 @@
 
         </Grid.RowDefinitions>
 
-        <Rectangle Fill="MediumPurple" />
+        <Rectangle Fill="#008080" />
+        <Rectangle Fill="#F5F5F5" Grid.Row="1"/>
         <!--menu bar-->
 
-        <Grid Grid.Row="1">
+        <Button x:Name="Credits_btn" Height="20" Width="50" VerticalAlignment="Top" 
+                HorizontalAlignment="Right" Background="#008080" 
+                Content="Credits" Click="Credits_btn_Click" BorderThickness="0" FontSize="15" />
+
+        <Grid Grid.Row="1" >
+            
             <Grid.ColumnDefinitions>
                 <!--Content-->
                 <ColumnDefinition Width="0.5*"/>
@@ -38,7 +48,7 @@
                 <UserControls:DataEntryBox Grid.Row="0" x:Name="Course_name" Width="250" Height="40" 
                                                    Placeholder="Course name"/>
                 <UserControls:DataEntryBox Grid.Row="1" x:Name="Course_grade" Width="250" Height="40" 
-                                                   Placeholder="Course grade"/>
+                                                   Placeholder="Course score"/>
                 <UserControls:DataEntryBox Grid.Row="2" x:Name="Course_nakaz" Width="250" Height="40" 
                                                    Placeholder="Course nakaz points"/>
                 <CheckBox Grid.Row="3" x:Name="Binary_pass" Content="Apply Binary-pass" Width="120" Height="20"  
@@ -56,8 +66,8 @@
                     <RowDefinition Height="0.8*"/>
                     <RowDefinition Height="0.2*"/>
                 </Grid.RowDefinitions>
-                <ListView Grid.Row="0" Background="White" Name="C_entries" BorderThickness="0" 
-                                  ItemsSource="{Binding Entries}" Margin="10,10,10,0" />
+                <ListView Grid.Row="0" Name="C_entries" BorderThickness="0" 
+                                  ItemsSource="{Binding Entries}" Margin="10,10,10,0" Background="#F5F5F5" />
 
 
                 <Grid Grid.Row="2">

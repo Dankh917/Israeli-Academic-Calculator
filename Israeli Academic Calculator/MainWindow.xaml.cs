@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Linq.Expressions;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -22,6 +23,7 @@ namespace Israeli_Academic_Calculator
             DataContext=this;
             entries = new ObservableCollection<Course>();
             InitializeComponent();
+            
         }
         Calculator calculator = new Calculator();
 
@@ -36,17 +38,46 @@ namespace Israeli_Academic_Calculator
 
         private void Add_btn_Click(object sender, RoutedEventArgs e)
         {
-            Entries.Add(new Course(Course_name.Text, int.Parse(Course_grade.Text), int.Parse(Course_nakaz.Text), Binary_pass.IsChecked ?? false));
-            calculator.Add_Course(new Course(Course_name.Text , int.Parse(Course_grade.Text), int.Parse(Course_nakaz.Text), Binary_pass.IsChecked??false)); //shuts the APP for some reason,
-                                                                                                                                     //need to check how to keep it running, might be for unhelded throw
-            if(Binary_pass.IsChecked==true)
+            
+            try
             {
-                Binary_pass.IsChecked = false;
+                int.Parse(Course_grade.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Course Score must be a number", "ERROR", MessageBoxButton.OK,MessageBoxImage.Error);
+                return;
+                
             }
 
-            Course_name.Clr_Data_Entry_Box();
-            Course_grade.Clr_Data_Entry_Box();
-            Course_nakaz.Clr_Data_Entry_Box();
+            try
+            {
+                int.Parse(Course_nakaz.Text);
+            }
+            catch
+            {
+                MessageBox.Show("course Nakaz must be a number", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+                return ;
+            }
+
+            try
+            {
+                Entries.Add(new Course(Course_name.Text, int.Parse(Course_grade.Text), int.Parse(Course_nakaz.Text), Binary_pass.IsChecked ?? false));
+                calculator.Add_Course(new Course(Course_name.Text, int.Parse(Course_grade.Text), int.Parse(Course_nakaz.Text), Binary_pass.IsChecked ?? false));
+                if (Binary_pass.IsChecked == true)
+                {
+                    Binary_pass.IsChecked = false;
+                }
+
+                Course_name.Clr_Data_Entry_Box();
+                Course_grade.Clr_Data_Entry_Box();
+                Course_nakaz.Clr_Data_Entry_Box();
+            }
+            catch(Exception ex) 
+            {
+                MessageBox.Show(ex.Message , "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            
             
         }
 
@@ -62,6 +93,12 @@ namespace Israeli_Academic_Calculator
         private void Calculatebtn_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Your average score is : "+calculator.Calculate_Average_Score(), "RESULT",MessageBoxButton.OK);
+        }
+
+
+        private void Credits_btn_Click(object sender, RoutedEventArgs e)
+        {
+            //placeholder will update at a later date 
         }
     }
 }
