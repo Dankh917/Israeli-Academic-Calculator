@@ -9,12 +9,12 @@ namespace Israeli_Academic_Calculator
     public class Course
     {
         string name;
-        int score;
-        int nakaz; //nakaz = Credit points per course
+        double score;
+        double nakaz; //nakaz = Credit points per course
         bool is_binary_active; // checks if binary assigned to course
 
 
-        public Course(string name, int score, int nakaz, bool is_binary_active)
+        public Course(string name, double score, double nakaz, bool is_binary_active)
         {
             Name = name;
             Score = score;
@@ -28,7 +28,7 @@ namespace Israeli_Academic_Calculator
             get { return name; }
             set { name = value; }
         }
-        public int Score
+        public double Score
         {
             get { return score; }
             set 
@@ -42,7 +42,7 @@ namespace Israeli_Academic_Calculator
                 score = value; 
             }
         }
-        public int Nakaz
+        public double Nakaz
         {
             get { return nakaz; }
             set 

@@ -41,7 +41,7 @@ namespace Israeli_Academic_Calculator
             
             try
             {
-                int.Parse(Course_grade.Text);
+                double.Parse(Course_grade.Text);
             }
             catch
             {
@@ -52,7 +52,7 @@ namespace Israeli_Academic_Calculator
 
             try
             {
-                int.Parse(Course_nakaz.Text);
+                double.Parse(Course_nakaz.Text);
             }
             catch
             {
@@ -62,8 +62,8 @@ namespace Israeli_Academic_Calculator
 
             try
             {
-                Entries.Add(new Course(Course_name.Text, int.Parse(Course_grade.Text), int.Parse(Course_nakaz.Text), Binary_pass.IsChecked ?? false));
-                calculator.Add_Course(new Course(Course_name.Text, int.Parse(Course_grade.Text), int.Parse(Course_nakaz.Text), Binary_pass.IsChecked ?? false));
+                Entries.Add(new Course(Course_name.Text, double.Parse(Course_grade.Text), double.Parse(Course_nakaz.Text), Binary_pass.IsChecked ?? false));
+                calculator.Add_Course(new Course(Course_name.Text, double.Parse(Course_grade.Text), double.Parse(Course_nakaz.Text), Binary_pass.IsChecked ?? false));
                 if (Binary_pass.IsChecked == true)
                 {
                     Binary_pass.IsChecked = false;
