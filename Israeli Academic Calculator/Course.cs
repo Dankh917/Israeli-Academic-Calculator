@@ -8,7 +8,7 @@ namespace Israeli_Academic_Calculator
 {
     public record Course
     {
-        string name;
+        string? name;
         double score;
         double nakaz; //nakaz = Credit points per course
         bool isBinaryActive; // checks if binary assigned to course
@@ -25,7 +25,7 @@ namespace Israeli_Academic_Calculator
 
         public string Name
         {
-            get { return name; }
+            get { return name??""; }
             set { name = value; }
         }
         public double Score
