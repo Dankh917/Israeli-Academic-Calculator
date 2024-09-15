@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq.Expressions;
 using System.Text;
 using System.Windows;
@@ -20,10 +21,10 @@ namespace Israeli_Academic_Calculator
     {
         public MainWindow()
         {
-            DataContext=this;
+            DataContext = this;
             entries = new ObservableCollection<Course>();
             InitializeComponent();
-            
+
         }
         Calculator calculator = new Calculator();
 
@@ -35,7 +36,7 @@ namespace Israeli_Academic_Calculator
             set { entries = value; }
         }
 
-        
+
 
         private void CreditsButton_Click(object sender, RoutedEventArgs e)
         {
@@ -44,31 +45,25 @@ namespace Israeli_Academic_Calculator
 
         private void Addbutton_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                double.Parse(CourseGrade.Text);
-            }
-            catch
+            double grade;
+            if (!double.TryParse(CourseGrade.Text, out grade))
             {
                 MessageBox.Show("Course Score must be a number", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
-
             }
-
-            try
-            {
-                double.Parse(CourseNakaz.Text);
-            }
-            catch
+            
+            double nakaz;
+            if (!double.TryParse(CourseNakaz.Text, out nakaz))
             {
                 MessageBox.Show("course Nakaz must be a number", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
+            
 
             try
             {
-                Entries.Add(new Course(CourseName.Text, double.Parse(CourseGrade.Text), double.Parse(CourseNakaz.Text), BinaryPass.IsChecked ?? false));
-                calculator.AddCourse(new Course(CourseName.Text, double.Parse(CourseGrade.Text), double.Parse(CourseNakaz.Text), BinaryPass.IsChecked ?? false));
+                Entries.Add(new Course(CourseName.Text, grade, nakaz, BinaryPass.IsChecked ?? false));
+                calculator.AddCourse(new Course(CourseName.Text, grade, nakaz, BinaryPass.IsChecked ?? false));
                 if (BinaryPass.IsChecked == true)
                 {
                     BinaryPass.IsChecked = false;
