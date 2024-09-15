@@ -67,14 +67,7 @@ namespace Israeli_Academic_Calculator
             return "Name: "+Name+" | Score: "+score+" | Nakaz: "+nakaz+" | Binary active: "+isBinaryActive;
         }
 
-        //public override bool Equals(object obj) //overwritten this as to make the Del_Course(Course course) func in the Calculator class work , without it wouldnt work
-        //{
-        //    if (obj == null || GetType() != obj.GetType())
-        //        return false;
-
-        //    Course other = (Course)obj;
-        //    return Name == other.Name && Score == other.Score && Nakaz == other.Nakaz && isBinaryActive == other.isBinaryActive; 
-        //}
+        
     }
 
 
