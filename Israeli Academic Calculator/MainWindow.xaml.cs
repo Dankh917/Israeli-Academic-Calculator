@@ -45,15 +45,15 @@ namespace Israeli_Academic_Calculator
 
         private void Addbutton_Click(object sender, RoutedEventArgs e)
         {
-            double grade;
-            if (!double.TryParse(CourseGrade.Text, out grade))
+            
+            if (!double.TryParse(CourseGrade.Text, out double grade))
             {
                 MessageBox.Show("Course Score must be a number", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
             
-            double nakaz;
-            if (!double.TryParse(CourseNakaz.Text, out nakaz))
+            
+            if (!double.TryParse(CourseNakaz.Text, out double nakaz))
             {
                 MessageBox.Show("course Nakaz must be a number", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
