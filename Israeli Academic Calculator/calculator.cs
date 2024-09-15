@@ -9,31 +9,31 @@ namespace Israeli_Academic_Calculator
 {
     public class Calculator
     {
-        List<Course> List_Courses;
+        List<Course> listCourses;
 
         public Calculator()
         {
-            List_Courses = new List<Course>();
+            listCourses = new List<Course>();
         }
 
-        public void Add_Course(Course course)
+        public void AddCourse(Course course)
         {
-            List_Courses.Add(course);
+            listCourses.Add(course);
         }
-        public void Del_Course(Course course) 
+        public void DeleteCourse(Course course) 
         { 
-            List_Courses.Remove(course);
+            listCourses.Remove(course);
         }
 
-        public double Calculate_Average_Score()
+        public double CalculateAverageScore()
         {
             double total_score=0;
             double total_nakaz=0;
             double result;
 
-            foreach (Course course in List_Courses)
+            foreach (Course course in listCourses)
             {
-                if (course.Is_Binary_Active == false)
+                if (course.IsBinaryActive == false)
                 {
                     total_score += course.Score * course.Nakaz;
                     total_nakaz += course.Nakaz;
@@ -45,9 +45,9 @@ namespace Israeli_Academic_Calculator
 
         }
 
-        public void Print_Courses_names()
+        public void PrintCoursesNames()
         {
-            foreach(Course course in List_Courses)
+            foreach(Course course in listCourses)
             {
                 Console.WriteLine(course.Name+" ");
             }

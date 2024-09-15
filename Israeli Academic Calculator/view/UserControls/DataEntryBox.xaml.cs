@@ -39,7 +39,7 @@ namespace Israeli_Academic_Calculator.view.UserControls
             set 
             { 
                 placeholder = value;
-                OnpropertyChanged("Placeholder");
+                OnPropertyChanged("Placeholder");
             }
         }
 
@@ -47,31 +47,31 @@ namespace Israeli_Academic_Calculator.view.UserControls
 
         public string Text
         {
-            get { return  txtInput.Text; }
-            set { txtInput.Text = value; }
+            get { return  TextInput.Text; }
+            set { TextInput.Text = value; }
         }
 
 
         private void btnClear_Click(object sender, RoutedEventArgs e)
         {
-            txtInput.Clear();
-            txtInput.Focus();
+            TextInput.Clear();
+            TextInput.Focus();
         }
 
         private void txtInput_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (string.IsNullOrEmpty(txtInput.Text))
+            if (string.IsNullOrEmpty(TextInput.Text))
             {
-                tbPlaceholder.Visibility = Visibility.Visible;
+                TextBlockPlaceHolder.Visibility = Visibility.Visible;
             }
             else
             {
-                tbPlaceholder.Visibility = Visibility.Hidden;
+                TextBlockPlaceHolder.Visibility = Visibility.Hidden;
             }
 
         }
 
-        private void OnpropertyChanged(string propertyName)
+        private void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
@@ -80,7 +80,7 @@ namespace Israeli_Academic_Calculator.view.UserControls
         //need to add a function to clear the DataEntryBox
         public void Clr_Data_Entry_Box()
         {
-            txtInput.Clear();
+            TextInput.Clear();
         }
 
     }

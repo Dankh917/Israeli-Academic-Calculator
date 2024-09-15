@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Israeli_Academic_Calculator" 
         mc:Ignorable="d"
         xmlns:UserControls="clr-namespace:Israeli_Academic_Calculator.view.UserControls"
-        Title="Academic calculator" Height="550" Width="900" Icon="D:\Israeli Academic Calculator\Israeli Academic Calculator\Calculator_30001.ico"
+        Title="Academic calculator" Height="550" Width="900" 
         
         >
         
@@ -24,9 +24,9 @@
         <Rectangle Fill="#F5F5F5" Grid.Row="1"/>
         <!--menu bar-->
 
-        <Button x:Name="Credits_btn" Height="20" Width="50" VerticalAlignment="Top" 
+        <Button x:Name="CreditsButton" Height="20" Width="50" VerticalAlignment="Top" 
                 HorizontalAlignment="Right" Background="#008080" 
-                Content="Credits" Click="Credits_btn_Click" BorderThickness="0" FontSize="15" />
+                Content="Credits" Click="CreditsButton_Click" BorderThickness="0" FontSize="15" />
 
         <Grid Grid.Row="1" >
             
@@ -45,16 +45,16 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
-                <UserControls:DataEntryBox Grid.Row="0" x:Name="Course_name" Width="250" Height="40" 
+                <UserControls:DataEntryBox Grid.Row="0" x:Name="CourseName" Width="250" Height="40" 
                                                    Placeholder="Course name"/>
-                <UserControls:DataEntryBox Grid.Row="1" x:Name="Course_grade" Width="250" Height="40" 
+                <UserControls:DataEntryBox Grid.Row="1" x:Name="CourseGrade" Width="250" Height="40" 
                                                    Placeholder="Course score"/>
-                <UserControls:DataEntryBox Grid.Row="2" x:Name="Course_nakaz" Width="250" Height="40" 
+                <UserControls:DataEntryBox Grid.Row="2" x:Name="CourseNakaz" Width="250" Height="40" 
                                                    Placeholder="Course nakaz points"/>
-                <CheckBox Grid.Row="3" x:Name="Binary_pass" Content="Apply Binary-pass" Width="120" Height="20"  
+                <CheckBox Grid.Row="3" x:Name="BinaryPass" Content="Apply Binary-pass" Width="120" Height="20"  
                                   VerticalAlignment="Center" HorizontalAlignment="Center" />
-                <Button Grid.Row="4" x:Name="Add_btn" Width="100" Height="40" 
-                                Content="Add course" Click="Add_btn_Click" 
+                <Button Grid.Row="4" x:Name="Addbutton" Width="100" Height="40" 
+                                Content="Add course" Click="Addbutton_Click" 
                                 VerticalAlignment="Top" HorizontalAlignment="Center"/>
                 <Border Grid.RowSpan="5" HorizontalAlignment="Right" Width="2" Background="LightGray" Margin="0,13,0,13"/>
 
@@ -76,13 +76,13 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
 
-                    <Button Name="Delbtn" Content="Delete" Height="40" 
+                    <Button Name="DeleteButton" Content="Delete" Height="40" 
                             Width="100" VerticalAlignment="Top"  
-                            HorizontalAlignment="Center" Click="Delbtn_Click"/>
+                            HorizontalAlignment="Center" Click="DeleteButton_Click"/>
 
-                    <Button Grid.Column="1" Name="Calculatebtn" 
+                    <Button Grid.Column="1" Name="CalculateButton" 
                             Content="Calculate" Height="40" Width="100" VerticalAlignment="Top"  
-                            HorizontalAlignment="Center" Click="Calculatebtn_Click" />
+                            HorizontalAlignment="Center" Click="CalculateButton_Click" />
 
 
                 </Grid>

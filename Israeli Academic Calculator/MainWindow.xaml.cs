@@ -35,70 +35,66 @@ namespace Israeli_Academic_Calculator
             set { entries = value; }
         }
 
+        
 
-        private void Add_btn_Click(object sender, RoutedEventArgs e)
+        private void CreditsButton_Click(object sender, RoutedEventArgs e)
         {
-            
+            //placeholder will update at a later date
+        }
+
+        private void Addbutton_Click(object sender, RoutedEventArgs e)
+        {
             try
             {
-                double.Parse(Course_grade.Text);
+                double.Parse(CourseGrade.Text);
             }
             catch
             {
-                MessageBox.Show("Course Score must be a number", "ERROR", MessageBoxButton.OK,MessageBoxImage.Error);
+                MessageBox.Show("Course Score must be a number", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
-                
+
             }
 
             try
             {
-                double.Parse(Course_nakaz.Text);
+                double.Parse(CourseNakaz.Text);
             }
             catch
             {
                 MessageBox.Show("course Nakaz must be a number", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
-                return ;
+                return;
             }
 
             try
             {
-                Entries.Add(new Course(Course_name.Text, double.Parse(Course_grade.Text), double.Parse(Course_nakaz.Text), Binary_pass.IsChecked ?? false));
-                calculator.Add_Course(new Course(Course_name.Text, double.Parse(Course_grade.Text), double.Parse(Course_nakaz.Text), Binary_pass.IsChecked ?? false));
-                if (Binary_pass.IsChecked == true)
+                Entries.Add(new Course(CourseName.Text, double.Parse(CourseGrade.Text), double.Parse(CourseNakaz.Text), BinaryPass.IsChecked ?? false));
+                calculator.AddCourse(new Course(CourseName.Text, double.Parse(CourseGrade.Text), double.Parse(CourseNakaz.Text), BinaryPass.IsChecked ?? false));
+                if (BinaryPass.IsChecked == true)
                 {
-                    Binary_pass.IsChecked = false;
+                    BinaryPass.IsChecked = false;
                 }
 
-                Course_name.Clr_Data_Entry_Box();
-                Course_grade.Clr_Data_Entry_Box();
-                Course_nakaz.Clr_Data_Entry_Box();
+                CourseName.Clr_Data_Entry_Box();
+                CourseGrade.Clr_Data_Entry_Box();
+                CourseNakaz.Clr_Data_Entry_Box();
             }
-            catch(Exception ex) 
+            catch (Exception ex)
             {
-                MessageBox.Show(ex.Message , "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(ex.Message, "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            
-            
         }
 
-        private void Delbtn_Click(object sender, RoutedEventArgs e)
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
+
             Course selected_course = (Course)C_entries.SelectedItem;
-            calculator.Del_Course(selected_course);
+            calculator.DeleteCourse(selected_course);
             Entries.Remove(selected_course);
-
         }
 
-
-        private void Calculatebtn_Click(object sender, RoutedEventArgs e)
+        private void CalculateButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Your average score is : "+calculator.Calculate_Average_Score(), "RESULT",MessageBoxButton.OK);
-        }
-
-
-        private void Credits_btn_Click(object sender, RoutedEventArgs e)
-        {
-            //placeholder will update at a later date 
+            MessageBox.Show("Your average score is : " + calculator.CalculateAverageScore(), "RESULT", MessageBoxButton.OK);
         }
     }
 }

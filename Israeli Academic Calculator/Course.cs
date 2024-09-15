@@ -11,15 +11,15 @@ namespace Israeli_Academic_Calculator
         string name;
         double score;
         double nakaz; //nakaz = Credit points per course
-        bool is_binary_active; // checks if binary assigned to course
+        bool isBinaryActive; // checks if binary assigned to course
 
 
-        public Course(string name, double score, double nakaz, bool is_binary_active)
+        public Course(string name, double score, double nakaz, bool isBinaryActive)
         {
             Name = name;
             Score = score;
             Nakaz = nakaz;
-            Is_Binary_Active = is_binary_active;
+            IsBinaryActive = isBinaryActive;
             
         }
 
@@ -55,16 +55,16 @@ namespace Israeli_Academic_Calculator
                 nakaz = value; 
             }
         }
-        public bool Is_Binary_Active
+        public bool IsBinaryActive
         {
-            get { return is_binary_active; }
-            set { is_binary_active = value;}
+            get { return isBinaryActive; }
+            set { isBinaryActive = value;}
         }
 
 
         public override string ToString()
         {
-            return "Name: "+Name+" | Score: "+score+" | Nakaz: "+nakaz+" | Binary active: "+Is_Binary_Active;
+            return "Name: "+Name+" | Score: "+score+" | Nakaz: "+nakaz+" | Binary active: "+isBinaryActive;
         }
 
         public override bool Equals(object obj) //overwritten this as to make the Del_Course(Course course) func in the Calculator class work , without it wouldnt work
@@ -73,7 +73,7 @@ namespace Israeli_Academic_Calculator
                 return false;
 
             Course other = (Course)obj;
-            return Name == other.Name && Score == other.Score && Nakaz == other.Nakaz && Is_Binary_Active == other.Is_Binary_Active; 
+            return Name == other.Name && Score == other.Score && Nakaz == other.Nakaz && isBinaryActive == other.isBinaryActive; 
         }
     }
 
